@@ -1,3 +1,6 @@
 [user]
-	name = Vasili Sviridov
-	email = vasili@sviridov.ca
+	name = Vasili Svirydau
+	email = vasili.svirydau@move.com
+
+[push]
+    default = simple
