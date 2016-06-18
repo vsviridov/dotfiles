@@ -1,21 +1,9 @@
 [user]
-    name = Vasili Sviridov
-    email = vasili@sviridov.ca
+	name = Vasili Sviridov
+	email = vasili@sviridov.ca
 
 [push]
-    default = simple
-[difftool "bcompare-mac"]
-    cmd = "\"/Applications/Beyond Compare 2.app/Contents/MacOS/bcompare"\"
-[mergetool "bcompare-mac"]
-    cmd = "\"/Applications/Beyond Compare 2.app/Contents/MacOS/bcompare\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\""
-    trustExitCode = true
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    # path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	default = simple
 
 [core]
 	editor = /usr/bin/vim

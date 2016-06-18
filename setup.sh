@@ -1,17 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
 # From aaronjensen/dotfiles
 
-cd `dirname $0`
-F=`pwd |sed -e "s#$HOME/\?##"`
+cd "$(dirname "$0")"
+F=$( pwd |sed -e "s#$HOME/\?##" )
 
 for P in *
 do
   # skip setup
   if [ "$P" = "setup.sh" ]; then continue; fi
+  if [ "$P" = "README.md" ]; then continue; fi
 
   # ensure permissions
-  chmod -R o-rwx,g-rwx $P
+  chmod -R o-rwx,g-rwx "$P"
 
   # skip existing links
   if [ -h "$HOME/.$P" ]; then continue; fi
