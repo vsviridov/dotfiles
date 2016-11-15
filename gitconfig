@@ -1,6 +1,17 @@
 [user]
-	name = Vasili Svirydau
-	email = vasili.svirydau@move.com
+    name = Vasili Sviridov
+    email = vasili@sviridov.ca
 
 [push]
     default = simple
+
+[core]
+    editor = /usr/bin/vim
+[diff]
+    tool = bcomp
+[merge]
+    tool = bcomp
+
+[mergetool "bcomp"]
+    trustExitCode = true
+    cmd = bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
