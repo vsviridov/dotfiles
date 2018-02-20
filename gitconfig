@@ -1,17 +1,26 @@
 [user]
-    name = Vasili Sviridov
-    email = vasili@sviridov.ca
+    name = Vasili Svirydau
+    email = vsvirydau@copperleaf.com
 
 [push]
     default = simple
 
 [core]
     editor = /usr/bin/vim
-[diff]
-    tool = bcomp
-[merge]
-    tool = bcomp
 
-[mergetool "bcomp"]
+[merge]
+    tool = bcompare
+
+[diff]
+    tool = bcompare
+
+[mergetool "bcompare"]
     trustExitCode = true
-    cmd = bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[difftool "bcompare"]
+    trustExitCode = true
+    cmd = bcompare "$LOCAL" "$REMOTE"
