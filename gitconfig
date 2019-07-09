@@ -24,3 +24,5 @@
 [difftool "bcompare"]
     trustExitCode = true
     cmd = bcompare "$LOCAL" "$REMOTE"
+[alias]
+	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
