@@ -1,9 +1,12 @@
 [user]
-    name = Vasili Svirydau
-    email = vsvirydau@copperleaf.com
+    name = Vasili Sviridov
+    email = vasili@sviridov.ca
 
 [push]
     default = simple
+
+[pull]
+    rebase = true
 
 [core]
     editor = /usr/bin/vim
@@ -23,6 +26,7 @@
 
 [difftool "bcompare"]
     trustExitCode = true
-    cmd = bcompare "$LOCAL" "$REMOTE"
+    cmd = bcompare \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+
 [alias]
-	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+    ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
