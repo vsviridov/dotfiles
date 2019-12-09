@@ -3,4 +3,4 @@ dotfiles
 
 Configuration files
 
-run install.sh
+run setup.sh

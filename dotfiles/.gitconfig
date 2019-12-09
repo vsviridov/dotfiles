@@ -1,12 +1,9 @@
 [user]
-    name = Vasili Sviridov
-    email = vasili@sviridov.ca
+    name = Vasili Svirydau
+    email = vsvirydau@copperleaf.com
 
 [push]
     default = simple
-
-[pull]
-    rebase = true
 
 [core]
     editor = /usr/bin/vim
@@ -30,3 +27,6 @@
 
 [alias]
     ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+
+[rebase]
+	instructionFormat = (%an <%ae>) %s
