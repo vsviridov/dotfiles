@@ -1,34 +1,41 @@
 #!/bin/bash
 
+OLD_PWD=$PWD
+timestamp=$(date '+%m%d%Y%H%M')
+
+function finish {
+    cd "$OLD_PWD" || exit;
+}
+
+trap finish EXIT
+
 # From aaronjensen/dotfiles
+DOTFILES=$( cd "$(dirname "${BASH_SOURCE[0]}")" && pwd || return)
 
-cd "$(dirname "$0")"
-F=$( pwd |sed -e "s#$HOME/\?##" )
+cd "$DOTFILES/dotfiles" || exit;
 
-for P in *
-do
-  # skip setup
-  if [ "$P" = "setup.sh" ]; then continue; fi
-  if [ "$P" = "README.md" ]; then continue; fi
+find . -maxdepth 1 -type f -printf "%f\0" | while IFS= read -r -d $'\0' P; do
+    target="${HOME}/${P}"
+    backup="${HOME}/${P}.orig.${timestamp}"
 
-  # ensure permissions
-  chmod -R o-rwx,g-rwx "$P"
+    # skip existing links
+    if [ -h "$target" ]; then continue; fi
 
-  # skip existing links
-  if [ -h "$HOME/.$P" ]; then continue; fi
+    # move existing dir out of the way
+    if [ -e "$target" ]; then
+        if [ -e "$backup" ]; then
+            echo "want to override $target but backup exists"
+            continue;
+        fi
 
-  # move existing dir out of the way
-  if [ -e "$HOME/.$P" ]; then
-    if [ -e "$HOME/__$P" ]; then
-      echo "want to override $HOME/.$P but backup exists"
-      continue;
+        echo -n "Backup ${P}"
+        mv -v "$target" "$backup"
     fi
 
-    echo -n "Backup "
-    mv -v "$HOME/.$P" "$HOME/__$P"
-  fi
+    # create link
+    ln -v -s "$PWD/$P" "$target"
 
-  # create link
-  echo -n "Link "
-  ln -v -s "$F/$P" "$HOME/.$P"
+    # ensure permissions
+    chmod -R o-rwx,g-rwx "$target"
 done
+
