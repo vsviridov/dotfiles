@@ -43,3 +43,6 @@ done
     echo "for f in \"$DOTFILES/bash.d/*.sh\"; do source \"\$f\"; done"
     echo "unset f"
 ) >> ~/.bashrc
+
+git submodule init
+git submodule update
