@@ -39,10 +39,11 @@ find . -maxdepth 1 -type f -printf "%f\0" | while IFS= read -r -d $'\0' P; do
     chmod -R o-rwx,g-rwx "$target"
 done
 
-for f in $DOTFILES/setup.d/*.sh; do source "$f"; done
+# shellcheck source=/dev/null
+for f in "$DOTFILES/setup.d/"*.sh; do source "$f"; done
 unset f;
 
 (
-    echo "for f in \"$DOTFILES/bash.d/*.sh\"; do source \"\$f\"; done"
+    echo "for f in $DOTFILES/bash.d/*.sh; do source \"\$f\"; done"
     echo "unset f"
 ) >> ~/.bashrc
