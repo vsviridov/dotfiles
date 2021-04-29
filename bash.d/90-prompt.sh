@@ -1,5 +1,5 @@
 #!/bin/bash
 
-if test -x starship; then
+if command -v starship > /dev/null; then
     eval "$(starship init bash)"
 fi

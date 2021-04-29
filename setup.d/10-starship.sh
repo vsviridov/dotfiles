@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if ! test -x /usr/local/bin/starship; then
+if ! command -v /usr/local/bin/starship > /dev/null; then
     curl -fsSL https://starship.rs/install.sh | bash
-fi
-
-if ! grep starship ~/.bashrc > /dev/null; then
-    echo "eval \"\$(starship init bash)\"" >> ~/.bashrc
 fi
