@@ -1,2 +1,6 @@
 [elixir]
 disabled=true
+
+[kubernetes]
+disabled=false
+# format = 'on [⛵ $context \($namespace\)](dimmed green) '

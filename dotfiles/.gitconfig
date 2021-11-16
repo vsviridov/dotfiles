@@ -29,4 +29,7 @@
     ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 
 [rebase]
-	instructionFormat = (%an <%ae>) %s
+    instructionFormat = (%an <%ae>) %s
+[pull]
+	rebase = true
+	ff = only

@@ -1,0 +1,1 @@
+export PACT_DO_NOT_TRACK=1

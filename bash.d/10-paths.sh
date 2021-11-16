@@ -9,3 +9,7 @@ fi
 if [ -e "$HOME/.bin" ]; then
     export PATH="$HOME/.bin:$PATH"
 fi
+
+if [ -w "$HOME/go/bin" ]; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
