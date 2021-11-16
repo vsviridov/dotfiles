@@ -1,6 +1,6 @@
 [user]
     name = Vasili Svirydau
-    email = vsvirydau@copperleaf.com
+    email = vasili.svirydau@sterlingcapitalbrokers.com
 
 [push]
     default = simple
@@ -31,5 +31,5 @@
 [rebase]
     instructionFormat = (%an <%ae>) %s
 [pull]
-	rebase = true
-	ff = only
+    rebase = true
+    ff = only
